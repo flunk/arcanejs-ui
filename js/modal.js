@@ -39,4 +39,4 @@ class Modal extends Div {
             document.body.removeChild(this.element);
         });
     }
-};
+}

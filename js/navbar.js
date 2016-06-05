@@ -13,4 +13,4 @@ class NavBar extends Div {
       	
       	this.show();
     }
-};
+}
