@@ -1,5 +1,5 @@
 class Element {
-    constructor(type, id, className){
+    constructor(type, className, id){
 		this.element = document.createElement(type);
   
         if(id != null){
@@ -10,7 +10,7 @@ class Element {
             this.element.className = className;
         }
     }
-  
+    
   	//Get and set innerText
   	get text(){
      	 return this.element.innerText;
@@ -72,5 +72,9 @@ class Element {
   
   	show(){
      	document.body.appendChild(this.element);
+    }
+  
+    function setAttribute(name, value){
+		 this.element.setAttribute(name, value);
     }
 };

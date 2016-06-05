@@ -1,9 +1,9 @@
 class Button extends Element {
-    constructor(id, className, caption){
+    constructor(caption, className, id){
         if(className != null){
-            super("button", id, className);
+            super("button", className, id);
         } else {
-          	super("button", id, "btn btn-primary");  
+          	super("button", "btn btn-primary", id);  
         }
       
       	if(caption == "&times;"){//innerHTML is a security risk, this is the only exception

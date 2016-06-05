@@ -1,9 +1,8 @@
 class Link extends Element {
-    constructor(id, className, href){
-		super("a", id, className);
+    constructor(href, className, id){
+		super("a", className, id);
       	if(href){
           	this.element.href = href;
         }
-      	
     }
 };  

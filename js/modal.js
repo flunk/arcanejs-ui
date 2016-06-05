@@ -1,17 +1,17 @@
 class Modal extends Div {
     constructor(title, closeButton, content, button){
-		super("newModal", "modal fade");
-      	this.dialog = new Div(null, "modal-dialog");
-  		this.content = new Div(null, "modal-content");
-  		this.header = new Div(null, "modal-header");
-  		this.body = new Div(null, "modal-body");
-  		this.footer = new Div(null, "modal-footer");
+		super("modal fade");
+      	this.dialog = new Div("modal-dialog");
+  		this.content = new Div("modal-content");
+  		this.header = new Div("modal-header");
+  		this.body = new Div("modal-body");
+  		this.footer = new Div("modal-footer");
       	this.headerTitle = new Element("h4");
       	this.headerTitle.setText(title);
      
         if(closeButton){
-            let attribute = new Attribute("data-dismiss", "modal");
-           	this.dismissButton = new Button("&times;", "close", attribute);
+           	this.dismissButton = new Button("&times;");
+          	this.dismissButton.addAttribute("data-dismiss", "modal");
             header.addChild(dismissButton);	
         }
       
@@ -31,9 +31,11 @@ class Modal extends Div {
         this.content.addChild(this.footer);
       	
         document.body.appendChild(this.element);
-        $('#newModal').modal('show');
+      
+        //TODO remove this jQuery nonsense
+      	$(this.element).modal('show');
 
-        $('#newModal').on('hidden.bs.modal', function () {
+        $(this.element).on('hidden.bs.modal', function () {
             document.body.removeChild(this.element);
         });
     }
