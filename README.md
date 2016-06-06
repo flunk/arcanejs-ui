@@ -9,7 +9,7 @@ If you like XML or using the wrong tool for the job, this library is not for you
 ##Bootstrap
 At this time Bootstrap is the most widely used UI framework. JSReloaded offers JS6 classes for some of Bootstrap's components and they seem to play well with eachother. It would be nice to have full support for all of bootstraps elements and extentions like datepickers eventually.
 
-##Example##
+##Examples##
 Consider the following HTML that creates a Bootstrap navbar:
 
     <div class="navbar navbar-default navbar-fixed-top">
@@ -26,8 +26,8 @@ This is now done with a single line of JS:
 	
 To select elements from the DOM traditionally selectors based on id are used:
   
-  var element = document.getElementById("someID");
-  var element = $("#" + someID);
+  	var element = document.getElementById("someID");
+	var element = $("#" + someID);
 
 There is no example to give for this, because a reference to the objects should be saved upon instantiation. This allows development of webapplications more akin to the development of desktop applications.
 
