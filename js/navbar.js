@@ -8,7 +8,7 @@ class NavBar extends Div {
       	this.content.addChild(this.header);
       
       	this.brand = new Div("navbar-brand", "#");
-      	this.brand.text = brand;
+      	this.brand.setText(brand);
       	this.header.addChild(this.brand);
       	
       	this.show();

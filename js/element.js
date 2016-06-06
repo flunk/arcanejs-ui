@@ -11,13 +11,18 @@ class Element {
         }
     }
 
-    //Get and set innerText
-    get text() {
+    //innerText/HTML stuff
+    getText() {
         return this.element.innerText;
     }
 
-    set text(text) {
+    setText(text) {
         this.element.innerText = text;
+      	return this;
+    }
+  
+  	clear(){
+   		this.element.innerHTML = "";  
     }
 
 
@@ -72,9 +77,14 @@ class Element {
 
     show() {
         document.body.appendChild(this.element);
+      	return this;
     }
   
-    function setAttribute(name, value){
+  	addEventListner(name, callback){
+     	this.element.addEventListner(name, callback); 
+    }
+  
+    setAttribute(name, value){
 		 this.element.setAttribute(name, value);
     }
 }

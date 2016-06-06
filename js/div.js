@@ -1,5 +1,5 @@
 class Div extends Element {
-    constructor(id, className) {
+    constructor(className, id) {
         super("div", className, id);
     }
 }
