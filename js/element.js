@@ -9,6 +9,8 @@ class Element {
         if (className != null) {
             this.element.className = className;
         }
+      
+      	this.children = new Array();
     }
 
     //innerText/HTML stuff
@@ -72,6 +74,7 @@ class Element {
 
     //DOM operations
     addChild(child) {
+      	this.children.push(child);
         this.element.appendChild(child.element);
     }
 
@@ -80,11 +83,21 @@ class Element {
       	return this;
     }
   
+  	hide() {
+     	this.element.parentElement.removeChild(this.element); 
+    }
+  
   	addEventListner(name, callback){
      	this.element.addEventListner(name, callback); 
     }
   
     setAttribute(name, value){
 		 this.element.setAttribute(name, value);
+    }
+  
+  	set onClick(callback){
+    	this.element.addEventListener("click", function() {
+    		callback();
+		}, false);
     }
 }
