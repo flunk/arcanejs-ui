@@ -37,10 +37,8 @@ class Modal extends Div {
         //TODO remove this jQuery nonsense
       	$(this.element).modal('show');
 
-      	//LOL jQuery :')
-      	let hax = this;
-      	$(this.element).on('hidden.bs.modal', function () {
-          	hax.hide();
+      	$(this.element).on('hidden.bs.modal', () => {
+          	this.hide();
         });
     }
 
