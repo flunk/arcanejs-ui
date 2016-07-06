@@ -1,13 +1,13 @@
 #ElementJS
-ElementJS is a framework that allows for complex webapplications to be built in a pure ES6 object oriented fashion. Without the use of HTML(!!). At the core of this framework is the Element base class (hence the name) that provides a sane way to interface with traditional DOM elements. This Element class is extended to provide a JS6 class of other generic DOM elements like Divs, Buttons and Links. 
+ElementJS is a framework that allows for complex webapplications to be built in a pure ES6 object oriented fashion. Without the use of HTML (!!). At the core of this framework is the Element base class (hence the name) that provides a sane way to interface with traditional DOM elements. This Element class is extended to provide a JS6 class of other generic DOM elements like Divs, Buttons and Links. 
 
 ##What about HTML?
-HTML was first released in 1993 and it's intended use was is to define STATIC web content. It was in no shape or form conveived with the development of fully featured webapplications in mind. Trying to use HTML to develop complex webapplications is like using a hammer to screw in a lightbulb. Many frameworks however, try to facilitate this by using templates and directives. Entire languages have even been developed for this purpose. But HTML will never be more than a poor XML implementation. And like XML, has no place in modern webdevelopment.
+HTML was first released in 1993 and it's intended use was to define STATIC web content. It was in no shape or form conceived with the development of fully featured webapplications in mind. Trying to use HTML to develop complex webapplications is like using a hammer to screw in a lightbulb. However, many frameworks try to facilitate building webapplications on top of HTML by using templates and directives. Entire languages have been developed for this purpose. In stark contrast to this we state that HTML will never be more than a poor XML implementation. And like XML, has no place in modern webdevelopment.
 
 If you like XML or using the wrong tool for the job, this library is not for you.
 
 ##Bootstrap
-At this time Bootstrap is the most widely used UI framework. JSReloaded offers JS6 classes for some of Bootstrap's components and they seem to play well with eachother. It would be nice to have full support for all of bootstraps elements and extentions like datepickers eventually.
+At the time of writing Bootstrap is the most widely used UI framework. JSReloaded offers JS6 classes for some of Bootstrap's components and they seem to play well with eachother. It would be nice to have full support for all of bootstraps elements and extensions like datepickers eventually.
 
 ##Examples##
 Consider the following HTML that creates a Bootstrap navbar:
@@ -20,7 +20,7 @@ Consider the following HTML that creates a Bootstrap navbar:
       </div>
     </div>
 
-This is now done with a single line of JS:
+This is now done with a single line of JavaScript:
 
 	let navBar = new NavBar("JS :D");
 	
