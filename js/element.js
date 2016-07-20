@@ -29,19 +29,19 @@ class Element {
 
 
     //Style operations
-    get left() {
-        return parseInt(this.element.style.left.replace("px", ""));
+    get x() {
+        return this.element.offsetLeft;
     }
 
-    set left(val) {
+    set x(val) {
         this.element.style.left = val + "px";
     }
 
-    get top() {
-        return parseInt(this.element.style.top.replace("px", ""));
+    get y() {
+        return this.element.offsetTop;
     }
 
-    set top(val) {
+    set y(val) {
         this.element.style.top = val + "px";
     }
 
@@ -53,18 +53,22 @@ class Element {
             return this.element.offsetWidth;
         }
     }
+  
+  	addCssClass( cssClass ){
+    	this.element.classList.add(	cssClass );
+    }
+  
+  	removeCssClass( cssClass ){
+    	this.element.classList.remove( cssClass );
+    }
+
 
     set width(val) {
         this.element.style.width = val + "px";
     }
 
     get height() {
-        let height = this.element.style.height;
-        if (height == "") {
-            return parseInt(height.replace("px", ""));
-        } else {
-            return this.element.offsetHeight;
-        }
+    	return this.element.offsetHeight;
     }
 
     set height(val) {
