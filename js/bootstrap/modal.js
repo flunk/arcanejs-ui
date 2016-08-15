@@ -38,7 +38,7 @@ class Modal extends Div {
       	$(this.element).modal('show');
 
       	$(this.element).on('hidden.bs.modal', () => {
-          	this.hide();
+          	super.hide();
         });
     }
 

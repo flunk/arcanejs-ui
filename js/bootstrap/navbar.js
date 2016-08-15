@@ -1,6 +1,6 @@
 class NavBar extends Div {
-    constructor(brand){
-		super("navbar navbar-default navbar-fixed-top");
+    constructor( brand, parent, container ){
+		super("navbar navbar-default");
       	this.content = new Div("container-fluid");
       	this.addChild(this.content);
       	
@@ -16,19 +16,34 @@ class NavBar extends Div {
       
       	this.menuItems = new List( "nav navbar-nav", "bs-example-navbar-collapse-1" );	
       	this.collapsable.addChild( this.menuItems );
-            
-      	this.panel = new Panel();
-      	this.addChild( this.panel );
+       	
+      	this.container = container;
       	
       	this.activeItem = null;
       
-      	this.resize();
-      	this.show();
+
+     	parent.addChild(this);
+      	this.parent = parent;
+
+      	
+      	window.addEventListener('resize', (e) => this.handleResize(e) );
     }
   
   	resize(){
-        this.panel.x = this.height;
-      	this.panel.height = window.innerHeight - this.height;
+        this.container.x = this.height;
+      	this.container.height = window.innerHeight - this.height;
+    }
+  
+  	handleResize(){
+      	//this.resize();
+    	let i = 0;
+
+      	while (  i < this.menuItems.children.length ){     	
+          	if( this.menuItems.children[i].view ){
+            	this.menuItems.children[i].view.resize();
+            }
+        	i++;  
+        }
     }
   
   	addItem( item ){
@@ -38,10 +53,10 @@ class NavBar extends Div {
   	setActive( item ){
       	if( this.activeItem != null ){
     		this.activeItem.removeCssClass( "active" );
-          	this.activeItem.panel.hide();
+          	this.activeItem.view.hide();
         }
       	this.activeItem = item;
       	this.activeItem.addCssClass( "active" );
-      	this.panel.addChild( item.panel );
+      	this.container.addChild( item.view );
     }
 }

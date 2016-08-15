@@ -1,3 +1,8 @@
+    .wrapper, html, body {
+        height:100%;
+        margin:0;
+    }
+
 .unselectable {
 	-webkit-user-select: none;  
     -moz-user-select: none;    
@@ -11,8 +16,67 @@
     height:100%;
 }
 
+
+
+.frame {
+	width:100%;
+    height:100%;
+  	overflow:hidden;
+}
+
+.frameVertical{
+	float:left;
+}
+
+.frameset {
+	width:100%;
+    height:100%;
+  	overflow:hidden;
+}
+
+.frameHandle {
+	background-color:#e7e7e7;
+}
+
+.frameHandleHorizontal {
+    height:2px;
+  	width:100%;
+    cursor: row-resize;	
+}
+
+.frameHandleVertical {
+    height:100%;
+  	width:2px;
+    cursor: col-resize;
+  	float:left;
+}
+
 .absolute {
  	position:absolute;
 	top:0px;
 	left:0px;
+}
+
+.view {
+	width:100%;
+    height:100%; 
+}
+
+.navBarApp {
+	width:100%;
+    height:100%;
+    display: flex;
+  	flex-direction: column;
+  	align-items: 'stretch';
+}
+
+.navBarTop {
+	width:100%;
+    height:51px;
+}
+
+.navBarContainer {
+	width:100%;
+	flex: 1;
+    overflow:hidden;
 }

@@ -8,9 +8,11 @@ class NavBarItem extends ListItem{
       	this.addChild( this.link );
       
       	this.dropdown = null;
-      	this.panel = null;
+      	this.view = null;
 
       	this.onClick = () => this.handleClick();
+      	
+      	navBar.addItem ( this );
     }
 	
   	handleClick(){
@@ -18,10 +20,17 @@ class NavBarItem extends ListItem{
           	this.dropdown.x = this.x;
           	this.dropdown.y = this.y + this.height;
         	this.dropdown.show();
-        } else if( this.panel != null ) {
-        	//TODO Make panels appear when clicked
+        } else if( this.view != null ) {
           	this.navBar.setActive ( this );
-          	//this.navBar.panel.addChild( this.panel );
         }
+    }
+  
+  	deactivate(){
+		this.removeCssClass( "active" );
+        this.hide();
+    }
+  
+  	activate(){
+    	this.addCssClass( "active" );
     }
 }

@@ -44,14 +44,19 @@ class Element {
     set y(val) {
         this.element.style.top = val + "px";
     }
+  
+  
+  	get clientX() {
+    	return this.element.getBoundingClientRect().left;
+    }
+
+	get clientY() {
+    	return this.element.getBoundingClientRect().top;
+    }
 
     get width() {
-        let width = this.element.style.width;
-        if (width == "") {
-            return parseInt(styleWidth.replace("px", ""));
-        } else {
-            return this.element.offsetWidth;
-        }
+      	this.element.style.setProperty('display', '');
+        return this.element.getBoundingClientRect().width;
     }
   
   	addCssClass( cssClass ){
@@ -68,7 +73,8 @@ class Element {
     }
 
     get height() {
-    	return this.element.offsetHeight;
+      	this.element.style.setProperty('display', '');
+    	return this.element.getBoundingClientRect().height;
     }
 
     set height(val) {
