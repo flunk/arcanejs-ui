@@ -7,7 +7,7 @@ class App {
       	
 		this.initDropdown();
 		this.initPanel1();
-		this.initPanel2();
+		this.initFrames();
     }
 
   	initDropdown(){
@@ -44,36 +44,30 @@ class App {
       	view.panel.addChild( jumbo ); 
     }
   
-	initPanel2(){
-      	let panelItem2 = new NavBarItem( "Frames Demo", this.navBar );
-      	frameSet = new FrameSet( true );
-      	let view = new View( frameSet );
-      	panelItem2.view = view;
-      	this.view2 = view;
+	initFrames(){
+      	let frameDemoView = new View( );
+      	let frameDemoItem = new NavBarItem( "Frames Demo", this.navBar, frameDemoView );
+      	
+      	let frameSet = new FrameSet( true, frameDemoView,  frameDemoView);
+      	
+      	frameDemoItem.handleClick();
+      	
+        let mainFrame = new Frame( frameSet );
+      	frameSet.addFrame( mainFrame, 0.5 );
+      	let bottomFrame = new Frame( frameSet, 0.1 );
+      	bottomFrame.setContent ( new TabGroup( frameDemoView ) );
+      	frameSet.addFrame( bottomFrame, 0.3 );
       
-      	panelItem2.handleClick();
-        let frame0 = new Frame( frameSet );
-      	let frame1 = new Frame( frameSet );
-		let frame2 = new Frame( frameSet );
-
-      	let frameSetVertical = new FrameSet( false );
-      	frame0.setContent( frameSetVertical );
+      	let horizontalFrameSet = new FrameSet( false,  frameDemoView, mainFrame);
       
-      	let frame3 = new Frame( frameSetVertical );
-		let frame4 = new Frame( frameSetVertical );
-      	let frame5 = new Frame( frameSetVertical );
-      
-      	let frameSetVertical2 = new FrameSet( false );
-      	frame1.setContent( frameSetVertical2 );
-
-      	let frame6 = new Frame( frameSetVertical2 );
-		let frame7 = new Frame( frameSetVertical2 );
-      
-      	let frameSetHorizontal2 = new FrameSet( true );
-      	frame4.setContent( frameSetHorizontal2 );
-      
-      	let frame8 = new Frame( frameSetHorizontal2 );
-		let frame9 = new Frame( frameSetHorizontal2 );
+      	let middleFrame = new Frame( horizontalFrameSet );
+      	horizontalFrameSet.addFrame(middleFrame);
+      	let rightFrame = new Frame( horizontalFrameSet );
+      	horizontalFrameSet.addFrame(rightFrame, 0.8);
+      	
+      	let tabGroup = new TabGroup( frameDemoView );
+      	middleFrame.setContent ( tabGroup );
+      	rightFrame.setContent ( new TabGroup( frameDemoView ) );
     }
   
   	showModal(){

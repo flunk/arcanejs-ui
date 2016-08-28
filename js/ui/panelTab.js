@@ -62,7 +62,6 @@ class PanelTab extends ListItem {
                               
                               	if( tabOver ){
                                 	let localX = e.clientX - tabOver.x;
-                                  	console.log( localX );
                                   	if( localX < tabOver.width / 2 ){
                                     	this.tabGroup.tabBar.addChildBefore( this, tabOver );
                                     } else {
@@ -72,9 +71,6 @@ class PanelTab extends ListItem {
                                 	this.tabGroup.tabBar.addChild(this);
                                 }
                               
-                              	console.log(tabOver);
-                              	
-                              	
                               	this.activate();
                           	} else {
                               	frameOver.content.split( e.clientX, e.clientY, this)
