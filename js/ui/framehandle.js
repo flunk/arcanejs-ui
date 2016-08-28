@@ -19,18 +19,16 @@ class FrameHandle extends Div {
       
       	this.element.addEventListener("mousedown", this.mouseDown );
     }
-  
-  	makeEven(){
+
+  	splitPercentage( size ){
       	if ( this.frameSet.horizontal ){
-            let totalHeight = (this.frames[0].height + this.frames[1].height) + 2;
-            let half = ( totalHeight ) / 2;
-            this.frames[0].height = half;
-            this.frames[1].height = half;
+            let totalHeight = (this.frames[0].height + this.frames[1].height);
+            this.frames[0].height = totalHeight - (totalHeight * size) ;
+            this.frames[1].height = totalHeight - (totalHeight * (1 - size));
         } else {
-            let totalWidth = (this.frames[0].width + this.frames[1].width) + 2;
-            let half = ( totalWidth ) / 2;
-            this.frames[0].width = half;
-            this.frames[1].width = half;       	 
+            let totalWidth = (this.frames[0].width + this.frames[1].width);
+            this.frames[0].width = totalWidth - (totalWidth * size) ;
+            this.frames[1].width = totalWidth - (totalWidth * (1 - size));   	 
         }
       
       	this.frames[0].resize();

@@ -1,5 +1,5 @@
 class Element {
-    constructor(type, className, id){
+    constructor(type, className ,id){
 		this.element = document.createElement(type);
   
         if(id != null){
@@ -11,6 +11,8 @@ class Element {
         }
       
       	this.children = new Array();
+      
+    	return this;
     }
 
     //innerText/HTML stuff
@@ -43,6 +45,7 @@ class Element {
 
     set y(val) {
         this.element.style.top = val + "px";
+      	return this;
     }
   
   
@@ -61,15 +64,18 @@ class Element {
   
   	addCssClass( cssClass ){
     	this.element.classList.add(	cssClass );
+      	return this;
     }
   
   	removeCssClass( cssClass ){
     	this.element.classList.remove( cssClass );
+      	return this;
     }
 
 
     set width(val) {
         this.element.style.width = val + "px";
+       	return this;
     }
 
     get height() {
@@ -79,6 +85,7 @@ class Element {
 
     set height(val) {
         this.element.style.height = val + "px";
+       	return this;
     }
 
 
@@ -86,6 +93,27 @@ class Element {
     addChild(child) {
       	this.children.push(child);
         this.element.appendChild(child.element);
+       	return this;
+    }
+  
+  	addChildBefore( child , beforeChild ){
+    	let index = this.children.indexOf(beforeChild);
+      	this.children.splice(index, 0, child);
+      	this.element.insertBefore( child.element , beforeChild.element);
+      	return this;
+    }
+  
+  	addChildAfter( child , afterChild ){
+    	let index = this.children.indexOf(afterChild);
+      	this.children.splice(index + 1, 0, child);
+      	this.element.insertBefore( child.element , afterChild.element.nextSibling);
+      	return this;
+    }
+  
+  	removeChild(child){
+      	child.hide();
+    	this.children.splice( this.children.indexOf(child), 1);
+      	return this;
     }
 
     show() {
@@ -94,20 +122,30 @@ class Element {
     }
   
   	hide() {
-     	this.element.parentElement.removeChild(this.element); 
+      	if( this.element.parentElement ){
+     		this.element.parentElement.removeChild(this.element);
+        }
+      	return this;
     }
   
   	addEventListner(name, callback){
-     	this.element.addEventListner(name, callback); 
+     	this.element.addEventListner(name, callback);
+       	return this;
     }
   
     setAttribute(name, value){
-		 this.element.setAttribute(name, value);
+		this.element.setAttribute(name, value);
+       	return this;
     }
   
   	set onClick(callback){
     	this.element.addEventListener("click", function() {
     		callback();
 		}, false);
+      	return this;
+    }
+  
+  	isPointInBounds(x, y){
+    	 return( ( x > this.clientX && x < ( this.clientX + this.width ) ) && ( y > this.clientY && y < ( this.clientY + this.height ) ) );
     }
 }

@@ -1,5 +1,5 @@
 class NavBarItem extends ListItem{
-	constructor( caption , navBar){
+	constructor( caption , navBar, view){
 		super( "unselectable" );
       	this.navBar = navBar;
       	this.link = new Link( null );
@@ -8,7 +8,7 @@ class NavBarItem extends ListItem{
       	this.addChild( this.link );
       
       	this.dropdown = null;
-      	this.view = null;
+      	this.view = view;
 
       	this.onClick = () => this.handleClick();
       	
