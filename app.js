@@ -11,7 +11,7 @@ class App {
     }
 
   	initDropdown(){
-      	this.itemWithDropdown =  new NavBarItem( "Dropdown", this.navBar );
+      	this.itemWithDropdown =  new NavBarItem( new Glyphicon("fire"), this.navBar );
       	let dropdown = new Dropdown( );
       	
       	dropdown.addItem("Show Modal" , () => { 
@@ -31,7 +31,7 @@ class App {
     }
   
 	initPanel1(){
-        let item = new NavBarItem( "Panel1", this.navBar );
+        let item = new NavBarItem( new Glyphicon("globe"), this.navBar );
       	let view = new View( new Panel() );
       	item.view = view;
       	
@@ -46,7 +46,7 @@ class App {
   
 	initFrames(){
       	let frameDemoView = new View( );
-      	let frameDemoItem = new NavBarItem( "Frames Demo", this.navBar, frameDemoView );
+      	let frameDemoItem = new NavBarItem( new Glyphicon("edit"), this.navBar, frameDemoView );
       	
       	let frameSet = new FrameSet( true, frameDemoView,  frameDemoView);
       	
@@ -65,7 +65,14 @@ class App {
       	let rightFrame = new Frame( horizontalFrameSet );
       	horizontalFrameSet.addFrame(rightFrame, 0.8);
       	
+      	let stack = new PanelStack();
+      	stack.addHandle( new PanelHandle("yolo", new Panel().addChild( new H3("panel1")), stack ));
+      	stack.addHandle( new PanelHandle("yolo", new Panel().addChild( new H3("panel2")), stack ));
+      	stack.addHandle( new PanelHandle("yolo", new Panel().addChild( new H3("panel3")), stack ));
+      	let stackTab = new PanelTab("Stack", stack );
       	let tabGroup = new TabGroup( frameDemoView );
+      	tabGroup.addTab( stackTab );
+      	
       	middleFrame.setContent ( tabGroup );
       	rightFrame.setContent ( new TabGroup( frameDemoView ) );
     }

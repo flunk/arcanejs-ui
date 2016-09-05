@@ -2,7 +2,7 @@ class TabGroup extends Div {
 	constructor( view, tab ){
     	super("tabGroup");
       	this.view = view;
-      	this.tabBar = new List("nav nav-tabs");
+      	this.tabBar = new Div("arcane-tabs");
       	this.content = new Div("tabContent").setText("tabContent");
       	this.addChild( this.tabBar ).addChild( this.content );
       
@@ -17,6 +17,12 @@ class TabGroup extends Div {
 
       	this.tabBar.children[0].activate();
       	return this;
+    }
+  
+  	addTab( tab ){
+    	this.tabBar.addChild( tab );
+      	tab.tabGroup = this;
+      	tab.activate();
     }
   
   	setActive( tab ){

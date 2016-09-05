@@ -1,6 +1,6 @@
 class Panel extends Div {
 	constructor(){
-    	super("panel");
+    	super("arcane-panel");
       	return this;
     }
 }

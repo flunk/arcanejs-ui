@@ -1,31 +1,31 @@
 class NavBar extends Div {
     constructor( brand, parent, container ){
-		super("navbar navbar-default");
-      	this.content = new Div("container-fluid");
+		super("navbar navbar-vertical");
+      	this.content = new Div();
       	this.addChild(this.content);
       	
-      	this.header = new Div("navbar-header");
-      	this.content.addChild(this.header);
+      	//this.header = new Div("navbar-header");
+      	//this.content.addChild(this.header);
       
-      	this.brand = new Div("navbar-brand", "#");
-      	this.brand.setText(brand);
-      	this.header.addChild(this.brand);
+      	//this.brand = new Div("navbar-brand", "#");
+      	//this.brand.setText(brand);
+      	//this.header.addChild(this.brand);
       
-      	this.collapsable = new Div( "collapse navbar-collapse", "bs-example-navbar-collapse-1" );
+      	//this.collapsable = new Div( "collapse navbar-collapse", "bs-example-navbar-collapse-1" );
+      	this.collapsable = new Div( );
       	this.content.addChild( this.collapsable );
-      
-      	this.menuItems = new List( "nav navbar-nav", "bs-example-navbar-collapse-1" );	
+      	
+      	//nav navbar-nav
+      	this.menuItems = new List( "nav nav-pills nav-stacked", "bs-example-navbar-collapse-1" );	
       	this.collapsable.addChild( this.menuItems );
        	
       	this.container = container;
       	
       	this.activeItem = null;
       
-
      	parent.addChild(this);
       	this.parent = parent;
-
-      	
+	
       	window.addEventListener('resize', (e) => this.handleResize(e) );
     }
   

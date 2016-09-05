@@ -4,3 +4,20 @@
 	left:0px;
   	z-index:9000;
 }
+
+
+.badge {
+    color: inherit;
+    background-color: inherit;
+}
+
+.list-group-item {
+    padding: 0px 5px;
+  	border: 0px;
+  	margin-bottom: 0px;
+  	background-color:#2d2d2d;
+}
+
+.list-group-item:hover {
+	background-color:#333;
+}

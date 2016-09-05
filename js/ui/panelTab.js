@@ -1,6 +1,6 @@
-class PanelTab extends ListItem {
+class PanelTab extends Div {
 	constructor( title, panel, tabGroup ){
-    	super("unselectable");
+    	super("panelTab unselectable");
       	this.title = title;
 		this.panel = panel;
       	this.tabGroup = tabGroup
@@ -10,16 +10,17 @@ class PanelTab extends ListItem {
       	this.startDragY = 0;
       	this.isDown = false;
       	this.isMoving = false;
-      	this.dragContainer = new List("nav nav-tabs absolute"); 
+      	this.dragContainer = new Div("absolute"); 
       
-      	this.link = new Link();
-      	this.link.setText(title + " ");
+      	this.link = new Div();
+      	this.setText(title + " ");
       
-      	let closeButton = new Link();
-      	closeButton.setText("X");
+      	let closeButton = new Div("inline-block hand");
+      	
+      	closeButton.element.innerHTML = "&#215;";
+      	console.log(closeButton.element);
       
-      	this.addChild( this.link );
-      	this.link.addChild( closeButton );
+      	this.addChild( closeButton );
       	
 		this.down = (e) => this.handleMouseDown(e);
 		this.up = (e) => this.handleMouseUp(e);

@@ -1,18 +1,18 @@
 class NavBarApp extends Div {
-    constructor(brand){
-		super( "navBarApp" );
+    constructor(brand, horizontal){
+      	if(horizontal){
+			super( "navBarApp" );
+          	this.navBarTop = new Div( "navBarTop" );
+        } else {
+        	super( "navBarAppVertical" );
+          	this.navBarTop = new Div( "navBarLeft" );
+        }
 		this.show();
-		this.navBarTop = new Div( "navBarTop" );
+		
       	this.container = new Div( "navBarContainer" );
       	this.addChild( this.navBarTop );
       	this.addChild( this.container );
 
-      	
 		this.navBar = new NavBar( "ElementJS", this.navBarTop, this.container );
-      	
-
-      	
-      	
-
     }
 }
