@@ -18,7 +18,6 @@ class PanelTab extends Div {
       	let closeButton = new Div("inline-block hand");
       	
       	closeButton.element.innerHTML = "&#215;";
-      	console.log(closeButton.element);
       
       	this.addChild( closeButton );
       	

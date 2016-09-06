@@ -3,7 +3,7 @@ class NavBarItem extends ListItem{
 		super( "unselectable" );
       	this.navBar = navBar;
       	this.link = new Link( null );
-      	console.log(typeof caption)
+
       	if( caption instanceof Glyphicon ){
         	this.link.addChild( caption );
         } else {

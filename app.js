@@ -94,3 +94,5 @@ class App {
     	this.container2.splitHorizontal( new Container( new Panel ) ); 
     }
 };
+
+app = new App();

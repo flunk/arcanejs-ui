@@ -21,3 +21,19 @@
 .list-group-item:hover {
 	background-color:#333;
 }
+
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #ffffff;
+    background-color: #000;
+}
+
+.nav-pills>li>a {
+  	color:#888;
+    border-radius: 0px;
+}
+
+.nav-pills>li>a:hover {
+  	color:#FFF;
+    background-color:#000;
+}
