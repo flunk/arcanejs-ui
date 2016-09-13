@@ -7,7 +7,7 @@ class TabGroup extends Div {
       	this.addChild( this.tabBar ).addChild( this.content );
       
       	if(!tab){
-            this.tabBar.addChild( new PanelTab("Tab1", new Panel().addChild( new H3("panel1") ), this) );
+            this.tabBar.addChild( new PanelTab("Tab1", new Panel().setText("panel1"), this) );
             this.tabBar.addChild( new PanelTab("Tab2", new Panel().addChild( new H3("panel2") ), this) );
             this.tabBar.addChild( new PanelTab("Tab3", new Panel().addChild( new H3("panel3") ), this) );          
         } else {

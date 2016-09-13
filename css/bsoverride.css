@@ -15,11 +15,11 @@
     padding: 0px 5px;
   	border: 0px;
   	margin-bottom: 0px;
-  	background-color:#2d2d2d;
+  	background-color:rgba(0,0,0,0);
 }
 
 .list-group-item:hover {
-	background-color:#333;
+	color:#fff;
 }
 
 
@@ -36,4 +36,8 @@
 .nav-pills>li>a:hover {
   	color:#FFF;
     background-color:#000;
+}
+
+.jumbotron {
+	background-color:rgba(0,0,0,0.2);
 }
