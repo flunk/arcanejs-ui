@@ -131,7 +131,10 @@ class PanelTab extends Div {
   
   	activate(){
    		this.tabGroup.setActive( this );
-        this.addCssClass("active");     
+        this.addCssClass("active");    
+      	if(this.panel.handleActivate != null){
+        	this.panel.handleActivate();
+        }
     }
   
   	deactivate(){

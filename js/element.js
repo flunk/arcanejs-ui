@@ -128,8 +128,8 @@ class Element {
       	return this;
     }
   
-  	addEventListner(name, callback){
-     	this.element.addEventListner(name, callback);
+  	addEventListener(name, callback){
+     	this.element.addEventListener(name, callback);
        	return this;
     }
   
