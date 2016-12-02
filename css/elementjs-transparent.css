@@ -6,7 +6,7 @@
 
 body{
 	background-size: cover;
-  	background-color:#666;
+  	background-image: url("http://wallpapercave.com/wp/JhaBknc.png");
   	color:777;
 }
 
@@ -53,7 +53,7 @@ body{
 }
 
 .frameHandle {
-background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.5);
 }
 
 .frameHandleHorizontal {
@@ -106,7 +106,7 @@ background-color: rgba(0,0,0,0.6);
 .navBarLeft {
 	height:100%;
     width:45px;
-  	background-color: rgba(0,0,0,1);
+  	background-color: rgba(0,0,0,0.75);
 }
 
 .navBarContainer {
@@ -133,14 +133,14 @@ background-color: rgba(0,0,0,0.6);
   
 .arcane-tabs{
   	width:100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.5);
 }
 
 .tabContent{
 	flex: 1;
   	width:100%;
     overflow:hidden;
-  	background-color:rgba(0,0,0,0.5);
+  	background-color:rgba(0,0,0,0.7);
 }
 
 
@@ -158,8 +158,8 @@ background-color: rgba(0,0,0,0.6);
 }
 
 .panelTab.active{
-    color: #fff;
-    background-color: rgba(255,255,255,0.05);
+	color:#fff;
+    background-color:rgba(0,0,0,0.4);
 }
 
 .selectBox{	
