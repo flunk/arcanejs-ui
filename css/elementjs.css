@@ -34,8 +34,9 @@ body{
 	width:100%;
     height:100%;
         border: #333;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
+  	background-color:#262626;
 }
 
 .frame {
@@ -56,7 +57,7 @@ body{
 }
 
 .frameHandle {
-background-color: rgba(0,0,0,0.6);
+  background-color: #222;
 }
 
 .frameHandleHorizontal {
@@ -136,7 +137,7 @@ background-color: rgba(0,0,0,0.6);
   
 .arcane-tabs{
   	width:100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: #222;
 }
 
 .tabContent{
@@ -162,7 +163,7 @@ background-color: rgba(0,0,0,0.6);
 
 .panelTab.active{
     color: #fff;
-    background-color: rgba(255,255,255,0.05);
+    background-color: #333;
 }
 
 .selectBox{	

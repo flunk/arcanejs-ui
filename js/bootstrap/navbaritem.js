@@ -1,8 +1,9 @@
 class NavBarItem extends ListItem{
-	constructor( caption , navBar, view){
+	constructor( caption , navBar, view, baseapp){
 		super( "unselectable" );
       	this.navBar = navBar;
       	this.link = new Link( null );
+      	this.app = baseapp;
 
       	if( caption instanceof Glyphicon ){
         	this.link.addChild( caption );
@@ -27,6 +28,12 @@ class NavBarItem extends ListItem{
         	this.dropdown.show();
         } else if( this.view != null ) {
           	this.navBar.setActive ( this );
+        }
+      
+      	if(this.app != null){
+        	if(this.app.activate != null){
+            	this.app.activate(); 
+            }
         }
     }
   
