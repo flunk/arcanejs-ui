@@ -22,16 +22,16 @@ class NavBarItem extends ListItem{
     }
 	
   	handleClick(){
-      	if( this.dropdown != null ){
+      	if( this.dropdown !== null ){
           	this.dropdown.x = this.x;
           	this.dropdown.y = this.y + this.height;
         	this.dropdown.show();
-        } else if( this.view != null ) {
+        } else if( this.view !== null ) {
           	this.navBar.setActive ( this );
         }
       
-      	if(this.app != null){
-        	if(this.app.activate != null){
+      	if(this.app !== null){
+        	if(this.app.activate !== null){
             	this.app.activate(); 
             }
         }
@@ -40,6 +40,12 @@ class NavBarItem extends ListItem{
   	deactivate(){
 		this.removeCssClass( "active" );
         this.hide();
+        
+        if(this.app !== null){
+        	if(this.app.deactivate !== null){
+            	this.app.deactivate(); 
+            }
+        }
     }
   
   	activate(){

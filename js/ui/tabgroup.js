@@ -3,20 +3,29 @@ class TabGroup extends Div {
     	super("tabGroup");
       	this.view = view;
       	this.tabBar = new Div("arcane-tabs");
-      	this.content = new Div("tabContent").setText("tabContent");
+      	this.content = new Div("tabContent");
       	this.addChild( this.tabBar ).addChild( this.content );
       
       	if(!tab){
-            this.tabBar.addChild( new PanelTab("Tab1", new Panel().setText("panel1"), this) );
-            this.tabBar.addChild( new PanelTab("Tab2", new Panel().addChild( new H3("panel2") ), this) );
-            this.tabBar.addChild( new PanelTab("Tab3", new Panel().addChild( new H3("panel3") ), this) );          
+           //this.tabBar.addChild( new PanelTab("Tab1", new Panel().setText("panel1"), this) );
+           // this.tabBar.addChild( new PanelTab("Tab2", new Panel().addChild( new H3("panel2") ), this) );
+           // this.tabBar.addChild( new PanelTab("Tab3", new Panel().addChild( new H3("panel3") ), this) );          
         } else {
          	this.tabBar.addChild( tab );
           	tab.tabGroup = this;
+          	this.tabBar.children[0].activate();
         }
 
-      	this.tabBar.children[0].activate();
+      	
       	return this;
+    }
+  
+    resize(){
+    	if( this.activeTab ){
+            if(this.activeTab.resize !== null){
+                this.activeTab.resize();
+            }
+        }
     }
   
   	addTab( tab ){

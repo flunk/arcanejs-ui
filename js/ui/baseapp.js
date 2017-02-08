@@ -3,10 +3,10 @@ class BaseApp{
         this.view = new View( );
       	this.item = new NavBarItem( new Glyphicon(icon), app.navBarApp.navBar, this.view, this);
       	this.initialised = false;
+      	this.isActive = false;
     }
   
   	init(){
-      	console.log("bb");
     	this.initialised = true;
     }
   
@@ -14,5 +14,10 @@ class BaseApp{
 		if(!this.initialised){
         	this.init();
         }
+        this.isActive = true;
+    }
+    
+    deactivate(){
+        this.isActive = false;
     }
 }

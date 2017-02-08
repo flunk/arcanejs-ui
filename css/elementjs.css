@@ -172,7 +172,7 @@ body{
 	flex: 1;
   	width:100%;
     overflow:hidden;
-  	background-color:rgba(0,0,0,0.5);
+  	background-color:#222;
 }
 
 
@@ -192,6 +192,13 @@ body{
 .panelTab.active{
     color: #fff;
     background-color: #333;
+}
+
+.panelTab.focussed{
+    border-top-color: #2a9fd6;
+    border-top-style: solid;
+    border-top-width: 2px;
+    padding-top: 3px;
 }
 
 .selectBox{	

@@ -11,15 +11,16 @@ class PanelTab extends Div {
       	this.isDown = false;
       	this.isMoving = false;
       	this.dragContainer = new Div("absolute"); 
-      
+        this.onClose = null;
+        this.onResize = null;
       	this.link = new Div();
-      	this.setText(title + " ");
-      
-      	let closeButton = new Div("inline-block hand");
       	
-      	closeButton.element.innerHTML = "&#215;";
       
-      	this.addChild( closeButton );
+      	this.closeButton = new Div("inline-block hand");
+      	
+      	this.closeButton.element.innerHTML = "&#215;";
+      
+      	this.setTitle(title);
       	
 		this.down = (e) => this.handleMouseDown(e);
 		this.up = (e) => this.handleMouseUp(e);
@@ -28,7 +29,7 @@ class PanelTab extends Div {
       	
       	this.element.addEventListener("mousedown", this.down );
       	this.element.addEventListener("mouseup", this.up );    
-		closeButton.element.addEventListener("click", this.close );
+		this.closeButton.element.addEventListener("click", this.close );
       
      	return this;
     }
@@ -112,6 +113,9 @@ class PanelTab extends Div {
           	e.stopPropagation();
         }      
       	this.tabGroup.closeTab( this );
+      	if(this.onClose != null){
+      	    this.onClose();
+      	}
       	
       	return false;
     }
@@ -136,8 +140,29 @@ class PanelTab extends Div {
         	this.panel.handleActivate();
         }
     }
+    
+    setTitle(title){
+        this.clear();
+        this.setText(title + " ");
+        this.addChild( this.closeButton );
+    }
   
   	deactivate(){
       	this.removeCssClass("active");
-    }  
+      	this.removeCssClass("focussed");
+    }
+  
+  	focus(){
+    	 this.addCssClass("focussed");
+    }
+  
+  	unFocus(){
+    	this.removeCssClass("focussed");
+    }
+    
+    resize(){
+        if(this.onResize !== null){
+            this.onResize();
+        }
+    }
 }

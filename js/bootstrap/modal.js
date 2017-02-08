@@ -10,6 +10,7 @@ class Modal extends Div {
   		this.footer = new Div("modal-footer");
       	this.headerTitle = new Element("h4");
       	this.headerTitle.setText(title);
+      	this.onShow = null;
      
       	if(closeButton){
            	this.dismissButton = new Button("&times;", "close");
@@ -39,6 +40,12 @@ class Modal extends Div {
 
       	$(this.element).on('hidden.bs.modal', () => {
           	super.hide();
+        });
+        
+        $(this.element).on('shown.bs.modal', () => {
+          	if(this.onShow !== null){
+          	    this.onShow();
+          	}
         });
     }
 

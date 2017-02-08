@@ -99,11 +99,11 @@ class FrameSet extends Div {
         	let handle = this.handles[0];
           	handle.hide();
           	this.handles = new Array();
-        } else if(this.frames.length == 0){
+        } else if(this.frames.length === 0){
           	this.destroy();
         } else {
         	this.resize();
-      		this.trim() 
+      		this.trim();
         }
     }
   
