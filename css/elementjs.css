@@ -175,7 +175,6 @@ body{
   	background-color:#222;
 }
 
-
 .panelTab{
 	display: inline-block;
   	background-color: rgba(0,0,0,0);
@@ -205,9 +204,6 @@ body{
 	position:absolute;
   	background-color: rgba(51, 204, 255, 0.5);
 }
-
-
-
 
 /* Turn on custom 8px wide scrollbar */
 ::-webkit-scrollbar {
