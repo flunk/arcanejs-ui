@@ -93,6 +93,10 @@ class Element {
     addChild(child) {
       	this.children.push(child);
         this.element.appendChild(child.element);
+      
+      	if(child.onload != null){
+       		child.onload();  
+        }
        	return this;
     }
   
@@ -100,6 +104,10 @@ class Element {
     	let index = this.children.indexOf(beforeChild);
       	this.children.splice(index, 0, child);
       	this.element.insertBefore( child.element , beforeChild.element);
+      
+      	if(child.onload != null){
+       		child.onload();  
+        }
       	return this;
     }
   
@@ -107,6 +115,10 @@ class Element {
     	let index = this.children.indexOf(afterChild);
       	this.children.splice(index + 1, 0, child);
       	this.element.insertBefore( child.element , afterChild.element.nextSibling);
+      
+      	if(child.onload != null){
+       		child.onload();  
+        }
       	return this;
     }
   
