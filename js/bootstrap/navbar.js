@@ -58,5 +58,6 @@ class NavBar extends Div {
       	this.activeItem = item;
       	this.activeItem.addCssClass( "active" );
       	this.container.addChild( item.view );
+      	item.view.resize();
     }
 }

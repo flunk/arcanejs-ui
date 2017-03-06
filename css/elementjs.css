@@ -119,6 +119,21 @@ body{
     overflow:hidden;
 }
 
+.navBarChevy {
+    position:absolute;
+    bottom:0px;
+        left: 17px;
+}
+
+.navBarChevy:hover {
+    color:#fff;
+
+}
+
+.toggledNav{
+    width:200px;
+}
+
 .tabGroup{
   	height:100%;
     width:100%;

@@ -144,7 +144,7 @@ class Element {
 		}, false);
       	return this;
     }
-  
+    
   	isPointInBounds(x, y){
     	 return( ( x > this.clientX && x < ( this.clientX + this.width ) ) && ( y > this.clientY && y < ( this.clientY + this.height ) ) );
     }
