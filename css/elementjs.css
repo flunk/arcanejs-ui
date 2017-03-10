@@ -234,12 +234,8 @@ body{
 
 /* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
 ::-webkit-scrollbar-thumb:vertical {
-  /* This is the EXACT color of Mac OS scrollbars. 
-     Yes, I pulled out digital color meter */
-  background: rgba(1,1,1,0.5);
-  -webkit-border-radius: 100px;
+  background: #333;
 }
 ::-webkit-scrollbar-thumb:vertical:active {
-  background: rgba(1,1,1,0.61); /* Some darker color when you click it */
-  -webkit-border-radius: 100px;
+  background: #444; /* Some darker color when you click it */
 }
