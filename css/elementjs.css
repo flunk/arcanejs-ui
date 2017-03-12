@@ -153,6 +153,11 @@ body{
         left: 17px;
 }
 
+.NavItemLabel{
+    display: inline-block;
+    margin-left: 16px;
+}
+
 .navBarChevy:hover {
     color:#fff;
 

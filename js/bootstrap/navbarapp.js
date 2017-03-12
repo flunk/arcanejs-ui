@@ -9,8 +9,8 @@ class NavBarApp extends Div {
           	this.chevron = new Div( "navBarChevy" );
           	this.chevron.onClick = () => { this.toggle() };
           	this.toggled = false;
-          	
         }
+        
 		this.show();
       	this.container = new Div( "navBarContainer" );
       	this.addChild( this.navBarLeft );
@@ -22,21 +22,24 @@ class NavBarApp extends Div {
     }
     
     toggle(){
-        console.log(this);
+        //console.log(this);
         
         if(this.toggled){
             this.chevron.clear();
             this.chevron.addChild(new Span( "glyphicon glyphicon-chevron-right" ));
-            
+            this.navBar.toggleLables(false);
             this.navBarLeft.width = 45;
             this.toggled = false;
             this.navBar.handleResize();
+            
+            
             setTimeout(() => {this.navBar.handleResize()}, 1);
         } else {
-                        this.chevron.clear();
+            this.chevron.clear();
             this.chevron.addChild(new Span( "glyphicon glyphicon-chevron-left" ));
             
             this.navBarLeft.width = 200;
+            this.navBar.toggleLables(true);
             this.toggled = true;
             this.navBar.handleResize();
             setTimeout(() => {this.navBar.handleResize()}, 1);

@@ -1,7 +1,7 @@
 class BaseApp{
-  	constructor(icon){
-        this.view = new View( );
-      	this.item = new NavBarItem( new Glyphicon(icon), app.navBarApp.navBar, this.view, this);
+  	constructor(icon, title){
+        this.view = new View();
+      	this.item = new NavBarItem( new Glyphicon(icon), title, app.navBarApp.navBar, this.view, this);
       	this.initialised = false;
       	this.isActive = false;
     }

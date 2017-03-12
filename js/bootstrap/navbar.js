@@ -60,4 +60,10 @@ class NavBar extends Div {
       	this.container.addChild( item.view );
       	item.view.resize();
     }
+    
+    toggleLables(showLabel){
+        this.menuItems.children.forEach((item) => {
+            item.toggle(showLabel);
+        });
+    }
 }

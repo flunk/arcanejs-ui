@@ -1,17 +1,20 @@
 class NavBarItem extends ListItem{
-	constructor( caption , navBar, view, baseapp){
+	constructor( icon, caption , navBar, view, baseapp){
 		super( "unselectable" );
       	this.navBar = navBar;
       	this.link = new Link( null );
       	this.app = baseapp;
 
-      	if( caption instanceof Glyphicon ){
-        	this.link.addChild( caption );
-        } else {
-        	this.link.setText( caption );  
-        }
-      
-      	this.addChild( this.link );
+      	//if( caption instanceof Glyphicon ){
+      	this.caption = caption;
+        this.link.addChild( icon );
+       	this.addChild( this.link );
+       	
+       	
+        this.label = null; 
+        this.toggle(true);
+        
+
       
       	this.dropdown = null;
       	this.view = view;
@@ -50,5 +53,20 @@ class NavBarItem extends ListItem{
   
   	activate(){
     	this.addCssClass( "active" );
+    }
+    
+    toggle(showLabel){
+        console.log(showLabel);
+        if(showLabel){
+            if(this.label === null){
+                 this.label = new Div("NavItemLabel").setText(this.caption);
+                 this.link.addChild(this.label);
+            }
+        } else {
+            if(this.label !== null){
+                this.link.removeChild(this.label);
+                this.label = null;
+            }          
+        }
     }
 }
