@@ -25,4 +25,12 @@ class Textarea extends Element {
       	event.target.style.height = event.target.scrollHeight+'px';
       	return false;
     }
+    
+    get value(){
+    	return this.element.value; 
+    }
+  
+  	set value(val){
+   		this.element.value =  val;
+    }
 }
