@@ -151,8 +151,8 @@ class Element {
     }
   
   	set onClick(callback){
-    	this.element.addEventListener("click", function() {
-    		callback();
+    	this.element.addEventListener("click", function(event) {
+    		callback(event);
 		}, false);
       	return this;
     }
