@@ -1,18 +1,85 @@
+/*
+                ___                                   _______
+               /   |  ______________ _____  ___      / / ___/
+              / /| | / ___/ ___/ __ `/ __ \/ _ \__  / /\__ \ 
+             / ___ |/ /  / /__/ /_/ / / / /  __/ /_/ /___/ / 
+            /_/  |_/_/   \___/\__,_/_/ /_/\___/\____//____/  
+            I reject your HTML and substitute it with JSON...
+
+*/
+
+// The Element class is the base for all ArcaneJS objects.
+// It is a wrapper for the DOM element that adds functionality and shim functions
+// to existing functionality of the elements.
 class Element {
-    constructor(type, className ,id){
-		this.element = document.createElement(type);
-  
+    constructor(blueprint, style ,id){
+        //Initialise variables
+      	this.children = new Array();
+        //Retain backward compatability with code written before blueprints (like tabs...) 
+        if(typeof blueprint === "string"){
+            //Create the element of the type specified (the old way)
+            this.element = document.createElement(blueprint);
+        } else {
+             //Create the element, defaults to Div
+            if(blueprint.domtype !== undefined){
+                this.element = document.createElement(blueprint.domtype);
+            } else {
+                this.element = document.createElement("div");
+            }
+            
+            //Handle the rest of construction in the construct function
+            this.construct(blueprint)
+        }
+        
+		//Only used to be compatible with 3rd party libs that need an id...
         if(id != null){
             this.element.id = id;
         }
 
-        if (className != null) {
-            this.element.className = className;
+        if (style != null) {
+            if(typeof style === 'string'){
+                this.element.className = style;
+            } else if(typeof style === 'object'){
+                this.setStyle(style);
+            }
         }
-      
-      	this.children = new Array();
-      
     	return this;
+    }
+    
+    
+    //Construct children which are added as members to this object and
+    //handle other variables in the blueprint
+    construct(blueprint){
+        for (var key in blueprint) {
+            if (blueprint.hasOwnProperty(key)) {
+                if(key !== "domtype" && key !== "type"){
+                    let val = blueprint[key];
+                    switch(key){
+                        case "style": //Set the css class or parse a style definition
+                            this.setStyle(val);
+                            break;
+                        case "cssClass": //Set the css class or parse a style definition
+                            this.element.className = val;
+                            break;                            
+                        case "text": //Set the text
+                            this.setText(val.toString());
+                            break;
+                        case "innerHTML": //Set the text
+                            this.element.innerHTML = val;
+                            break;
+                        default: //Add a new member
+                            //console.log(val);
+                            if(val.type !== undefined){
+                                this[key] = new val.type(val);
+                            } else {
+                                this[key] = new Element(val);
+                            }
+                            this.addChild(this[key]);
+                            break;
+                    }
+                }
+            }
+        }  
     }
 
     //innerText/HTML stuff
@@ -29,8 +96,16 @@ class Element {
    		this.element.innerHTML = "";  
     }
 
-
     //Style operations
+    setStyle(style){
+        for (var key in style) {
+            if (style.hasOwnProperty(key)) {
+                this.element.style[key] = style[key];
+            }
+        }         
+        return this;
+    }
+
     get x() {
         return this.element.offsetLeft;
     }
@@ -47,8 +122,7 @@ class Element {
         this.element.style.top = val + "px";
       	return this;
     }
-  
-  
+
   	get clientX() {
     	return this.element.getBoundingClientRect().left;
     }
@@ -71,7 +145,6 @@ class Element {
     	this.element.classList.remove( cssClass );
       	return this;
     }
-
 
     set width(val) {
         this.element.style.width = val + "px";

@@ -56,7 +56,6 @@ class NavBarItem extends ListItem{
     }
     
     toggle(showLabel){
-        console.log(showLabel);
         if(showLabel){
             if(this.label === null){
                  this.label = new Div("NavItemLabel").setText(this.caption);
