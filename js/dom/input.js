@@ -1,5 +1,5 @@
 class Input extends Element {
-    constructor( placeholder, hideInput, className ){
+    constructor( placeholder, hideInput, className, inputType ){
   		super("Input", className);
       	if( placeholder ){
         	this.setAttribute("placeholder", placeholder);
@@ -8,6 +8,10 @@ class Input extends Element {
       	if( hideInput ){
         	 this.setAttribute("type" , "password" ); 
         }
+
+        if(inputType !== undefined){
+      		this.setAttribute("type", inputType)
+		}
       
       	//this.value = this.element.value;
       	
