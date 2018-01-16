@@ -2,7 +2,9 @@ class Button extends Element {
     constructor(blueprint, className, id){
         if(typeof blueprint === "object"){ //New style
             blueprint.domtype = "button";
-            blueprint.cssClass = "btn btn-primary";
+            if (blueprint.cssClass == null) {
+                blueprint.cssClass = "btn btn-primary";
+            }
             super(blueprint);
         } else { //Old style
             if (className != null) {

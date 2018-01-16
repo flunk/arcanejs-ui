@@ -52,7 +52,7 @@ class Element {
     construct(blueprint){
         for (var key in blueprint) {
             if (blueprint.hasOwnProperty(key)) {
-                if(key !== "domtype" && key !== "type"){
+                if(key !== "domtype" && key !== "type" && key !== "options"){
                     let val = blueprint[key];
                     switch(key){
                         case "style": //Set the css class or parse a style definition
@@ -66,6 +66,9 @@ class Element {
                             break;
                         case "innerHTML": //Set the text
                             this.element.innerHTML = val;
+                            break;                         
+                        case "value": //Set the value
+                            this.value = val;
                             break;
                         default: //Add a new member
                             //console.log(val);
@@ -82,6 +85,15 @@ class Element {
         }  
     }
 
+
+    get value() {
+        return this.element.value; 
+    }
+    
+    set value(val) {
+        this.element.value =  val;
+    }
+    
     //innerText/HTML stuff
     getText() {
         return this.element.innerText;
