@@ -138,6 +138,7 @@ class PanelTab extends Div {
         this.addCssClass("active");    
       	if(this.panel.handleActivate != null){
         	this.panel.handleActivate();
+        	this.resize();
         }
     }
     
