@@ -234,7 +234,16 @@ class Element {
 		this.element.setAttribute(name, value);
        	return this;
     }
-  
+
+
+
+    set onChange(callback){
+    	this.element.addEventListener("change", function(event) {
+    		callback(event);
+		}, false);
+      	return this;
+    }
+
   	set onClick(callback){
     	this.element.addEventListener("click", function(event) {
     		callback(event);
