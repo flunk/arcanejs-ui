@@ -72,7 +72,7 @@ class Element {
                             break;
                         default: //Add a new member
                             //console.log(val);
-                            if(val.type !== undefined){
+                            if(this.isConstructor(val.type)){
                                 this[key] = new val.type(val);
                             } else {
                                 this[key] = new Element(val);
@@ -253,5 +253,14 @@ class Element {
     
   	isPointInBounds(x, y){
     	 return( ( x > this.clientX && x < ( this.clientX + this.width ) ) && ( y > this.clientY && y < ( this.clientY + this.height ) ) );
+    }
+
+    isConstructor(value){
+        try {
+            new new Proxy(value, {construct() { return {}; }});
+            return true;
+        } catch (err) {
+            return false;
+        }
     }
 }
