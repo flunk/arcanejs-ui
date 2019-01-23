@@ -106,6 +106,7 @@ class Element {
   
   	clear(){
    		this.element.innerHTML = "";  
+		this.children = [];
     }
 
     //Style operations
