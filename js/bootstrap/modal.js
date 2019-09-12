@@ -1,5 +1,5 @@
 class Modal extends Div {
-    constructor(title, closeButton, content, button){
+    constructor(title, closeButton, content, button, disableDismiss){
 		super("modal fade");
       	this.setAttribute("role", "dialog");
               
@@ -47,6 +47,10 @@ class Modal extends Div {
           	    this.onShow();
           	}
         });
+
+        if (disableDismiss) {
+            $(this.element).data('bs.modal').options.backdrop = 'static';
+        }
     }
 
   	hide(){
