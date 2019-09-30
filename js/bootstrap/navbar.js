@@ -47,7 +47,7 @@ class NavBar extends Div {
     }
   
   	addItem( item ){
-		 this.menuItems.addItem( item );
+		 this.menuItems.addItemSorted( item, 'caption' );
     }
   
   	setActive( item ){
